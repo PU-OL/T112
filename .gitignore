@@ -30,6 +30,12 @@ replay_pid*
 .idea/tasks.xml
 .idea/dictionaries
 .idea/artifacts
+.idea/copilot.data.migration.agent.xml
+.idea/copilot.data.migration.ask.xml
+.idea/copilot.data.migration.ask2agent.xml
+.idea/copilot.data.migration.edit.xml
+,idea/copilot.data.migration.edit2agent.xml
+.idea/vcs.xml
 *.iml
 *.iws
 out/
