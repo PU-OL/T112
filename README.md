@@ -31,7 +31,7 @@ WITH LICENSE
 
 This Repository includes many programms things:
 
-- 1. Project spacestation monitoring
+- Project spacestation monitoring
 
 ## Report an error
 
