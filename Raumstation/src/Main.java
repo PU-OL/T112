@@ -27,10 +27,10 @@ public class Main {
         for(int i = 0; i < energieWerte.length; i++){
             for(int j = 0; j < energieWerte[i].length; j++){
                 if(energieWerte[i][j] == 1){
-                    gesamtEnergie -= 3;
+                    gesamtEnergie = gesamtEnergie-3;
                 }else{
                     if(energieWerte[i][j] == 2){
-                        gesamtEnergie -= 10;
+                        gesamtEnergie = gesamtEnergie-10;
                     }
                 }
                 if(gesamtEnergie < 50 && alert[0][0] != 1) {
@@ -117,7 +117,7 @@ public class Main {
         System.out.println();
         if(alert[0][0] == 1){
             System.out.println("\u001B[33m---------------------------------------------");
-            System.out.println("Warnung: Energie der Reparaturdrohne kritisch");
+            System.out.println("Warnung: Energie der Reperaturdrohne kritisch");
             System.out.println("Ab: Sektor " + (alert[0][1]+1) + "  Modul " + (alert[0][2]+1));
             System.out.println("---------------------------------------------\u001B[0m");
         }
