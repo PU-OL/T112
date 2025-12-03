@@ -35,6 +35,7 @@ This Repository includes many programing projects:
 - Project math tasks
 - Project loop task
 - Project Shoppingrechner
+- Project Temperaturausertung
 
 ## Report an error
 
