@@ -33,6 +33,8 @@ This Repository includes many programing projects:
 
 - Project space station monitoring
 - Project math tasks
+- Project loop task
+- Project Shoppingrechner
 
 ## Report an error
 
