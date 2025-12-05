@@ -1,7 +1,7 @@
 # T112
 
 > [!NOTE]
-> This are all projects for school. And have no deeper sense.
+> These are all projects for school. And have no deeper sense.
 >
 
 > ## Table of Content
@@ -15,7 +15,7 @@
 
 ## Project Description
 
-This Repo incudes multiple Projects from the course T112.
+This Repo includes multiple Projects from the course T112.
 
 ## Project state
 
@@ -29,9 +29,14 @@ WITH LICENSE
 
 ## Content
 
-This Repository includes many programms things:
+This Repository includes many programing projects:
 
-- Project spacestation monitoring
+- Project space station monitoring
+- Project math tasks
+- Project Loopstask
+- Project Shoppingrechner
+- Project Temperaturauswertung
+- Project Loopstask_2
 
 ## Report an error
 
