@@ -33,9 +33,10 @@ This Repository includes many programing projects:
 
 - Project space station monitoring
 - Project math tasks
-- Project loop task
+- Project Loopstask
 - Project Shoppingrechner
-- Project Temperaturausertung
+- Project Temperaturauswertung
+- Project Loopstask_2
 
 ## Report an error
 
