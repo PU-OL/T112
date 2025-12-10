@@ -3,7 +3,8 @@ public class Main {
         int[][] weatherdata = getWeatherData();
         float[][] weatherFahrenheit = changetoFahrenheit(weatherdata);
         float[][] mathresults = processdata(weatherdata);
-        printdata(weatherdata, weatherFahrenheit, mathresults);
+        int[] highdiff = getDiffrence(weatherdata);
+        printdata(weatherdata, weatherFahrenheit, mathresults, highdiff);
     }
 
     private static int[][] getWeatherData(){
@@ -51,14 +52,40 @@ public class Main {
         return temp;
     }
 
-    private static void printdata(int[][] weatherdata, float[][] weatherFahrenheit, float[][] mathresults){
+    private static int[] getDiffrence(int[][] weatherdata){
+        int[] temp = new int[weatherdata.length];
+        int tempminus;
+        int tempvalue = 0;
+        for(int i = 0; i < weatherdata.length; i++){
+            tempminus = 0;
+            for(int j = 0; j < weatherdata[0].length; j++) {
+                if (weatherdata[i][j] == weatherdata[i][weatherdata[0].length - 1]) {
+                    continue;
+                } else {
+                    if (weatherdata[i][j] < weatherdata[i][j + 1]) {
+                        tempminus = weatherdata[i][j + 1] - weatherdata[i][j];
+                    } else {
+                        tempminus = weatherdata[i][j] - weatherdata[i][j + 1];
+                    }
+                }
+                if (tempvalue < tempminus) {
+                    temp[i] = j;
+                    tempvalue = tempminus;
+                }
+            }
+        }
+        return temp;
+    }
+
+    private static void printdata(int[][] weatherdata, float[][] weatherFahrenheit, float[][] mathresults, int[] highdiff){
         System.out.println("Wetterdaten: ");
         System.out.println("----------");
         System.out.println("Temperatur in Grad Celsius: ");
+        System.out.println("-  -  -  -");
         for (int i = 0; i < weatherdata.length; i++) {
             switch(i){
                 case 0:
-                    System.out.print("Mai:");
+                    System.out.print("Mai: ");
                     break;
                 case 1:
                     System.out.print("Juni: ");
@@ -70,10 +97,14 @@ public class Main {
             for (int j = 0; j < weatherdata[0].length; j++) {
                 System.out.print(weatherdata[i][j] + "°C; ");
             }
+            if(i != weatherdata.length){
+                System.out.println();
+            }
         }
         System.out.println();
         System.out.println("----------");
-        System.out.println("Fahrenheit: ");
+        System.out.println("Temperatur in Fahrenheit: ");
+        System.out.println("-  -  -  -");
         for (int i = 0; i < weatherFahrenheit.length; i++) {
             switch(i){
                 case 0:
@@ -92,10 +123,14 @@ public class Main {
                     System.out.print("°F; ");
                 }
             }
+            if(i != weatherFahrenheit.length){
+                System.out.println();
+            }
         }
         System.out.println();
         System.out.println("----------");
         System.out.println("Ausgabe nach dem Format: Mai; Juni");
+        System.out.println("-  -  -  -");
         for(int i = 0; i < mathresults.length; i++){
             switch(i){
                 case 0:
@@ -121,5 +156,21 @@ public class Main {
             }
             System.out.println();
         }
+        System.out.println("----------");
+        System.out.println("Ausgabe im Format:");
+        System.out.println("Mai");
+        System.out.println("Juni");
+        System.out.println("-  -  -  -");
+        System.out.println("Höchste Differenz zweier aufeinanderfolgenden Tagen: ");
+        for(int i = 0; i < highdiff.length; i++){
+            System.out.print("Temperaturen: "+ weatherdata[i][highdiff[i]] + "°C & " + weatherdata[i][(highdiff[i])+1] + "°C, mit einer Differenz von: ");
+            if(weatherdata[i][highdiff[i]] < weatherdata[i][(highdiff[i]+1)]){
+                System.out.print(weatherdata[i][(highdiff[i]+1)]-weatherdata[i][highdiff[i]]);
+            }else {
+                System.out.print(weatherdata[i][highdiff[i]]-weatherdata[i][(highdiff[i]+1)]);
+            }
+            System.out.println();
+        }
+        System.out.println("----------");
     }
 }
