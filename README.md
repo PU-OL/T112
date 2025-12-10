@@ -37,6 +37,7 @@ This Repository includes many programing projects:
 - Project Shoppingrechner
 - Project Temperaturauswertung
 - Project Loopstask_2
+- Project Wetterdaten
 
 ## Report an error
 
