@@ -27,7 +27,10 @@ public class Main {
                 System.out.println();
                 addData();
             }
-            if(auswahl > 3 || auswahl < 1) {
+            if(auswahl == 42){
+                tableexample();
+            }
+            if(auswahl > 3 && auswahl != 42 || auswahl < 1 ) {
                 System.err.println("Bitte eine gültige Zahl eingeben!");
             }
         }while(auswahl != 3);
@@ -42,23 +45,16 @@ public class Main {
         boolean stop = false;
         boolean forward = false;
         boolean forward2 = false;
+        boolean doppel = false;
 
         do {
             System.out.flush();
-            System.out.println("**Stunden eintragen");
+            System.out.println("**Stunden eintragen**");
             System.out.println();
             System.out.println("Bitte Abkürzung Tag und Stunde eingeben. (z.B.: Tag -> Montag = Mo; Stunde -> 1)");
             System.out.println();
             System.out.print("Tag: ");
             day = scanner.next();
-            System.out.println();
-            System.out.print("Stunde: ");
-            hour = scanner.nextInt();
-            System.out.println();
-            System.out.print("Fachabkürzung (max. 2 Buchstaben; zum leeren nicht eingeben): ");
-            fach = scanner.next();
-            System.out.println();
-
             switch(day){
                 case "Mo":
                     tableday = 1;
@@ -81,9 +77,19 @@ public class Main {
                     forward = true;
                     break;
                 default:
-                    System.err.println("Kein gültigen Tag eingegeben");
+                    System.out.println("\u001B[31m Kein gültigen Tag eingegeben \u001B[0m");
+                    continue;
             }
-
+            System.out.println();
+            System.out.print("Stunde: ");
+            hour = scanner.nextInt();
+            if(hour > 6 && hour < 0){
+                System.out.println("\u001B[31m Ausserhalb des Zahlenbereiches! \u001B[0m");
+                continue;
+            }
+            System.out.println();
+            System.out.print("Fachabkürzung (max. 2 Buchstaben; zum leeren nicht eingeben): ");
+            fach = scanner.next();
             if(fach.length() < 3){
                 switch(fach.length()){
                     case 1:
@@ -97,16 +103,28 @@ public class Main {
                 }
                 forward2 = true;
             }else{
-                System.err.println("Bitte ein gültiges Fach eingeben!");
+                System.out.println("\u001B[31m Bitte ein gültiges Fach eingeben! \u001B[0m");
+                continue;
             }
+            System.out.println();
+            System.out.print("Doppelstunde? [J/N]");
+            String x = scanner.next();
+            if(x.equals("J") || x.equals("j")){
+                doppel = true;
+            }
+            System.out.println();
 
-            if(forward ==  true && forward2 == true && hour < 6 && hour > 0){
+            if(forward ==  true && forward2 == true){
                 table[hour-1][tableday-1] = tablefach;
+                if(doppel){
+                    table[hour][tableday-1] = tablefach;
+                }
+                doppel = false;
                 stop = true;
                 forward2 = false;
                 forward = false;
             }else {
-                System.err.println("Es ist ein allgemeiner Fehler aufgetreten oder die Stunde ausserhalb des Bereiches");
+                System.out.println("\u001B[31m Es ist ein allgemeiner Fehler aufgetreten! \u001B[0m");
             }
         }while(!stop);
     }
@@ -123,6 +141,34 @@ public class Main {
                 System.out.print(table[i][j]);
             }
             System.out.println();
+        }
+    }
+
+    private static void tableexample(){
+        String exampleData = "Pr,Pr,Pr,Pr,Pr,Pr,Pr,Pr,Pr,Pr,Pr,Pr,T7,T7,T5,T5,T6,T6,Po,Po,M,M,D,D,T2,T2,E,E,X,X";
+        String temp[] = exampleData.split(",");
+        for(int i = 0; i < temp.length; i++){
+            if(temp[i].equals("X")){
+                temp[i] = "";
+            }
+            switch(temp[i].length()){
+                case 1:
+                    temp[i] = temp[i] + "  \t ";
+                    break;
+                case 2:
+                    temp[i] = temp[i] + " \t ";
+                    break;
+                default:
+                    temp[i] = "-- \t";
+            }
+        }
+        // hour -> Day
+        int k = 0;
+        for(int i = 0; i < table[0].length; i++){
+            for(int j = 0; j < table.length; j++){
+                table[j][i] = temp[k];
+                k++;
+            }
         }
     }
 }
