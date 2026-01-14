@@ -38,6 +38,7 @@ This Repository includes many programing projects:
 - Project Temperaturauswertung
 - Project Loopstask_2
 - Project Wetterdaten
+- Project Stundenplanmanager
 
 ## Report an error
 
