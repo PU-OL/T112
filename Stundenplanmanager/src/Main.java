@@ -107,10 +107,12 @@ public class Main {
                 continue;
             }
             System.out.println();
-            System.out.print("Doppelstunde? [J/N]");
-            String x = scanner.next();
-            if(x.equals("J") || x.equals("j")){
-                doppel = true;
+            if(hour % 2 != 0) {
+                System.out.print("Doppelstunde? [J/N]: ");
+                String x = scanner.next();
+                if (x.equals("J") || x.equals("j")) {
+                    doppel = true;
+                }
             }
             System.out.println();
 
