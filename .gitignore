@@ -24,8 +24,6 @@ hs_err_pid*
 replay_pid*
 
 # IntelliJ IDEA
-.idea/misc.xml
-.idea/modules.xml
 .idea/workspace.xml
 .idea/tasks.xml
 .idea/dictionaries
