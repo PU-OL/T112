@@ -1,47 +1,154 @@
 import java.util.Scanner;
+import java.util.Random;
 
 public class Main {
     static Scanner scanner = new Scanner(System.in);
+    static Random random = new Random();
     public static void main(String[] args) {
         boolean vram[][];
+        boolean exit = false;
         byte showexample;
         int displaySize;
         byte color;
-        //get al the information
-        showexample = getExample();
-        displaySize = getSize(showexample);
-        color = getcolor(); // if color == 0 no color
 
-        //Fill the field
-       vram = fillField(displaySize);
+        do {
+            //get al the information
+            showexample = getExample();
+            displaySize = getSize(showexample);
+            color = getcolor(); // if color == 0 no color
 
-        //Draw field with cross
-        vram = drawFielcross(displaySize);
+            //Add example to internal storage
+            switch (showexample) {
+                case 1:
+                    //Fill the field
+                    vram = fillField(displaySize);
+                    break;
+                case 2:
+                    //Draw field with cross
+                    vram = drawFielcross(displaySize);
+                    break;
+                case 3:
+                    // Draw Circle
+                    vram = drawCircle(displaySize);
+                    break;
+                default:
+                    System.err.println("Ungültige Zahl in showexample");
+                    vram = new boolean[1][1];
+            }
 
-        // Draw Circle
-        vram = drawCircle(displaySize);
-        //print picture
-        printpicture(vram, color);
+            //print picture
+            printpicture(vram, color);
+
+            //New picture?
+            System.out.print("Neues Objekt anzeigen? [J/N]");
+            String input = scanner.next();
+            switch (input){
+                case "J":
+                case "j":
+                    exit = true;
+                    break;
+                case "N":
+                case "n":
+                    exit = false;
+                    break;
+                default:
+                    System.out.println("\u001B[31m Bitte einen gültigen Wert eingeben! \u001B[0m");
+                    exit = false;
+            }
+        }while(exit);
     }
 
-    private static byte getExample() {}
-    private  static int getSize(byte example) {}
-    private static byte getcolor() {}
+    private static byte getExample() {
+        boolean numberInRange;
+        byte example;
+        System.out.println("Bitte wählen Sie ein Beispiel: ");
+        System.out.println("1. Ausgefülltes Rechteck");
+        System.out.println("2. Rechteck mit Kreuz");
+        System.out.println("3. Kreis");
+        do {
+            System.out.print("--> ");
+            example = scanner.nextByte();
+            if (example < 4 && example > 0){
+                numberInRange = false;
+            }else{
+                System.out.println("\u001B[31m Bitte einen gültigen Wert eingeben! \u001B[0m");
+                numberInRange = true;
+            }
+        }while(numberInRange);
 
-    /*private static void getData(){
-        System.out.println("1. Ausgefülltes Rechteck; 2. Rechteck mit Kreuz; 3. Kreis");
-        System.out.print("Welches Beispiel soll angezeigt werden:");
-        showexample = scanner.nextByte();
-        System.out.println();
-        System.out.print("Bitte Größe eingeben: ");
-        displaySize = scanner.nextInt();
-        System.out.println();
-        System.out.print("Mit Farbe? [true/false] ");
-        qcolor = scanner.nextBoolean();
-        System.out.println();
-        System.out.print("Wählen Sie eine Farbe: ");
-        color = scanner.nextByte();
-    }*/
+        return example;
+    }
+    private  static int getSize(byte example) {
+        boolean valid = true;
+        int size;
+        System.out.println("Bitte geben Sie die Größe an: ");
+        do{
+            System.out.print("--> ");
+            size = scanner.nextInt();
+            if(size%2 == 0 && example == 3){
+                System.out.println(" \u001B[31m Bitte eine ungerade Zahl eingeben! \u001B[0m");
+            }else {
+                valid = false;
+            }
+        }while(valid);
+
+        return size;
+    }
+
+    private static byte getcolor() {
+        byte color = 0;
+        boolean repeat;
+        System.out.println("Soll das Bild mit Farbe sein? [J/N]: ");
+        do {
+            System.out.print("--> ");
+            String input = scanner.next();
+            switch (input) {
+                case "N":
+                case "n":
+                    return color;
+                case "J":
+                case "j":
+                    repeat = false;
+                    break;
+                default:
+                    System.out.println("\u001B[31m Bitte einen gültigen Wert eingeben! \u001B[0m");
+                    repeat = true;
+            }
+        }while (repeat);
+
+        System.out.println("Bitte eine Farbe auswählen: ");
+        System.out.println("1. Rot");
+        System.out.println("2. Blau");
+        System.out.println("3. Grün");
+        System.out.println("4. Gelb");
+        System.out.println("5. Lila");
+        System.out.println("6. Cyan");
+
+        do{
+            System.out.print("--> ");
+            byte input = scanner.nextByte();
+            switch (input){
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                    color = input;
+                    repeat = false;
+                    break;
+                case 42:
+                    color = 7;
+                    repeat = false;
+                    break;
+                default:
+                    System.out.println("\u001B[31m Bitte einen gültigen Wert eingeben! \u001B[0m");
+                    repeat = true;
+            }
+        }while (repeat);
+
+        return color;
+    }
 
     private static boolean[][] fillField(int size){
         boolean[][] tempvram = new boolean[size][size];
@@ -93,9 +200,63 @@ public class Main {
     }
 
     private static void printpicture(boolean[][] picture, byte choosenColor){
+        boolean rainbow = false;
+        System.out.println();
+        System.out.println("-----------------------------------");
+        System.out.println();
+        switch (choosenColor){
+            case 1:
+                System.out.print("\u001B[31m");
+                break;
+            case 2:
+                System.out.print("\u001B[34m");
+                break;
+            case 3:
+                System.out.print("\u001B[32m");
+                break;
+            case 4:
+                System.out.print("\u001B[33m");
+                break;
+            case 5:
+                System.out.print("\u001B[35m");
+                break;
+            case 6:
+                System.out.print("\u001B[36m");
+                break;
+            case 7:
+                rainbow = true;
+                break;
+            default:
+                System.out.print("\u001B[0m");
+        }
         for (int i = 0; i < picture.length; i++){
             for (int j = 0; j < picture[0].length; j++){
-                if(picture[i][j] == true){
+                if(rainbow){
+                    int randCol = random.nextInt(5);
+                    switch (randCol){
+                        case 0:
+                            System.out.print("\u001B[31m");
+                            break;
+                        case 1:
+                            System.out.print("\u001B[34m");
+                            break;
+                        case 2:
+                            System.out.print("\u001B[32m");
+                            break;
+                        case 3:
+                            System.out.print("\u001B[33m");
+                            break;
+                        case 4:
+                            System.out.print("\u001B[35m");
+                            break;
+                        case 5:
+                            System.out.print("\u001B[36m");
+                            break;
+                        default:
+                            System.out.print("\u001B[0m");
+                    }
+                }
+                if(picture[i][j]){
                     System.out.print("*");
                 }else{
                     System.out.print(" ");
@@ -103,5 +264,8 @@ public class Main {
             }
             System.out.println();
         }
+        System.out.println("\u001B[0m");
+        System.out.println("-----------------------------------");
+        System.out.println();
     }
 }
