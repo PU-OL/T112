@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Loopstask/Loopstask.iml" filepath="$PROJECT_DIR$/Loopstask/Loopstask.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Loopstask_2/Loopstask_2.iml" filepath="$PROJECT_DIR$/Loopstask_2/Loopstask_2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Matheuebungen/Matheuebungen.iml" filepath="$PROJECT_DIR$/Matheuebungen/Matheuebungen.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Raumstation/Raumstation.iml" filepath="$PROJECT_DIR$/Raumstation/Raumstation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Shoppingrechner/Shoppingrechner.iml" filepath="$PROJECT_DIR$/Shoppingrechner/Shoppingrechner.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Stundenplanmanager/Stundenplanmanager.iml" filepath="$PROJECT_DIR$/Stundenplanmanager/Stundenplanmanager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/T112.iml" filepath="$PROJECT_DIR$/.idea/T112.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Temperaturauswertung/Temperaturauswertung.iml" filepath="$PROJECT_DIR$/Temperaturauswertung/Temperaturauswertung.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Typenumwandlung/Typenumwandlung.iml" filepath="$PROJECT_DIR$/Typenumwandlung/Typenumwandlung.iml" />
+      <module fileurl="file://$PROJECT_DIR$/VRAM/VRAM.iml" filepath="$PROJECT_DIR$/VRAM/VRAM.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Wetterdaten/Wetterdaten.iml" filepath="$PROJECT_DIR$/Wetterdaten/Wetterdaten.iml" />
+    </modules>
+  </component>
+</project>
