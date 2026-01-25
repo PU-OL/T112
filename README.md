@@ -42,7 +42,7 @@ This Repository includes many programing projects:
 - Project typ converting
 - Project vram
 - Project weatherdata
-- 
+
 ## Report an error
 
 If you find an error or problem with this software, feel free to [open an Issue](https://github.com/PU-OL/T112/issues)
