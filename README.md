@@ -31,16 +31,18 @@ WITH LICENSE
 
 This Repository includes many programing projects:
 
-- Project space station monitoring
-- Project math tasks
-- Project Loopstask
-- Project Shoppingrechner
-- Project Temperaturauswertung
-- Project Loopstask_2
-- Project Wetterdaten
-- Project Stundenplanmanager
-- Typenumwandlung
 
+- Project Loopstask
+- Project Loopstask_2
+- Project math tasks
+- Project space station monitoring
+- Project shopping calculator
+- Project timetable manager
+- Project temperature analysis
+- Project typ converting
+- Project vram
+- Project weatherdata
+- 
 ## Report an error
 
 If you find an error or problem with this software, feel free to [open an Issue](https://github.com/PU-OL/T112/issues)
