@@ -4,6 +4,7 @@ import java.util.Random;
 public class Main {
     static Scanner scanner = new Scanner(System.in);
     static Random random = new Random();
+
     public static void main(String[] args) {
         boolean vram[][];
         boolean exit = false;
@@ -61,10 +62,12 @@ public class Main {
     private static byte getExample() {
         boolean numberInRange;
         byte example;
+
         System.out.println("Bitte wählen Sie ein Beispiel: ");
         System.out.println("1. Ausgefülltes Rechteck");
         System.out.println("2. Rechteck mit Kreuz");
         System.out.println("3. Kreis");
+
         do {
             System.out.print("--> ");
             example = scanner.nextByte();
@@ -78,10 +81,13 @@ public class Main {
 
         return example;
     }
+
     private  static int getSize(byte example) {
         boolean valid = true;
         int size;
+
         System.out.println("Bitte geben Sie die Größe an: ");
+
         do{
             System.out.print("--> ");
             size = scanner.nextInt();
@@ -98,7 +104,9 @@ public class Main {
     private static byte getcolor() {
         byte color = 0;
         boolean repeat;
+
         System.out.println("Soll das Bild mit Farbe sein? [J/N]: ");
+
         do {
             System.out.print("--> ");
             String input = scanner.next();
@@ -152,6 +160,7 @@ public class Main {
 
     private static boolean[][] fillField(int size){
         boolean[][] tempvram = new boolean[size][size];
+
         for (int i = 0; i < tempvram.length; i++) {
             for (int j = 0; j < tempvram[0].length; j++){
                 tempvram[j][i] = true;
@@ -162,6 +171,7 @@ public class Main {
 
     private static boolean[][] drawFielcross(int size) {
         boolean[][] tempvram = new boolean[size][size];
+
         for(int i = 0; i < tempvram.length; i++) {
             for (int j = 0; j < tempvram[0].length; j++) {
                 if (j == 0 || j == tempvram.length - 1 || i == 0 || i == tempvram.length - 1 || i == j || j == tempvram[0].length - i) {
@@ -201,9 +211,11 @@ public class Main {
 
     private static void printpicture(boolean[][] picture, byte choosenColor){
         boolean rainbow = false;
+
         System.out.println();
         System.out.println("-----------------------------------");
         System.out.println();
+
         switch (choosenColor){
             case 1:
                 System.out.print("\u001B[31m");
