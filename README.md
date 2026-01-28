@@ -31,6 +31,7 @@ WITH LICENSE
 
 This Repository includes many programing projects:
 
+- Project EVA-Test
 - Project Loopstask
 - Project Loopstask_2
 - Project math tasks
