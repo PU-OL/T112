@@ -29,19 +29,21 @@ public class Main {
     }
 
     private static void addConn() {
-        int time;
+        int time = 0;
         for (int i = 0; i < connections.length; i++) {
             switch(i){
                 case 0:
                     connections[i][0] = "Frankfurt_HBF";
                     connections[i][1] = "Koeln_Messe_Deutz";
                     time = random.nextInt(3);
+                    time++;
                     connections[i][2] = time + "";
                     break;
                 case 1:
                     connections[i][0] = "Frankfurt_HBF";
                     connections[i][1] = "Berlin_HBF";
                     time = random.nextInt(5);
+                    time++;
                     connections[i][2] = time + "";
                     break;
 
@@ -49,6 +51,7 @@ public class Main {
                     connections[i][0] = "Koeln_Messe_Deutz";
                     connections[i][1] = "Muenchen_HBF";
                     time = random.nextInt(7);
+                    time++;
                     connections[i][2] = time + "";
                     break;
 
@@ -56,6 +59,7 @@ public class Main {
                     connections[i][0] = "String" + i;
                     connections[i][1] = "String2" + i;
                     time = random.nextInt(5);
+                    time++;
                     connections[i][2] = time + "";
             }
         }
