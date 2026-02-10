@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/EVA-Test/EVA-Test.iml" filepath="$PROJECT_DIR$/EVA-Test/EVA-Test.iml" />
       <module fileurl="file://$PROJECT_DIR$/Loopstask/Loopstask.iml" filepath="$PROJECT_DIR$/Loopstask/Loopstask.iml" />
       <module fileurl="file://$PROJECT_DIR$/Loopstask_2/Loopstask_2.iml" filepath="$PROJECT_DIR$/Loopstask_2/Loopstask_2.iml" />
       <module fileurl="file://$PROJECT_DIR$/Matheuebungen/Matheuebungen.iml" filepath="$PROJECT_DIR$/Matheuebungen/Matheuebungen.iml" />
