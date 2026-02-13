@@ -34,6 +34,7 @@ This Repository includes many programing projects:
 - Project EVA-Test
 - Project Loopstask
 - Project Loopstask_2
+- Project Loopstask_3
 - Project math tasks
 - Project space station monitoring
 - Project shopping calculator
@@ -49,4 +50,4 @@ If you find an error or problem with this software, feel free to [open an Issue]
 
 ---
 
-©2025 PU-OL
+©2025-2026 PU-OL
