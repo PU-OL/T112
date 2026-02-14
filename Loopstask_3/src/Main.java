@@ -2,11 +2,13 @@ import java.util.*;
 
 public class Main {
     static Scanner scanner = new Scanner(System.in);
+    static Random random = new Random();
     public static void main(String[] args) {
         task1();
         task2();
         task3();
         task4();
+        task5();
         task6();
         task7();
     }
@@ -91,8 +93,43 @@ public class Main {
     }
 
     private static void task5(){
+        //n random nummern -> Summe Mittelwert Ausgabe
+        double[] randomNumbers;
+        int sum = 0;
+        float mittel;
 
-        System.out.println("\n----------");
+        System.out.print("Bitte geben Sie an, wie viele zufällige Zahlen Sie haben möchten: ");
+        int n = 0;
+        do {
+            n = scanner.nextInt();
+            if(n < 1){
+                System.out.println("Die Zahl muss größer als 0 sein! Bitte erneut versuchen!");
+            }
+        }while(n < 1);
+        System.out.println();
+
+        randomNumbers = new double[n];
+
+        for (int i = 0; i < n; i++){
+            randomNumbers[i] = random.nextDouble(100);
+        }
+
+        for (int i = 0; i < randomNumbers.length; i++){
+            sum = sum +  (int) randomNumbers[i];
+        }
+
+        mittel = (float) sum / randomNumbers.length;
+
+        System.out.println("Ihre Zufallszahlen: ");
+        for (int i = 0; i < randomNumbers.length; i++){
+            System.out.print(randomNumbers[i] + " ");
+        }
+        System.out.println("\nDie Summer der Zufallszahlen: " + sum + "\nDer Mittelwert der Zufallszahlen: " + mittel);
+        System.out.print("Press Enter to proceed. ");
+        System.out.print("\n----------");
+        scanner.nextLine();
+        scanner.nextLine();
+
     }
 
     private static void task6(){
@@ -111,8 +148,15 @@ public class Main {
 
     private static void task7(){
         double percent = 0;
+        int numberOfPeople;
         System.out.print("Bitte eine Personenanzahl angeben: ");
-        int numberOfPeople = scanner.nextInt();
+        do {
+            numberOfPeople = scanner.nextInt();
+            if(numberOfPeople <= 0 || numberOfPeople > 364){
+                System.out.println("Bitte einen Wert, größer als 0 und kleiner als 365, eingeben!");
+            }
+        }while(numberOfPeople <= 0 || numberOfPeople > 364);
+
         System.out.println();
         double yearMultiplier = 1.0;
         double nenner = 0.0;
