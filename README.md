@@ -36,6 +36,7 @@ This Repository includes many programing projects:
 - Project Loopstask_2
 - Project Loopstask_3
 - Project math tasks
+- Project Methods
 - Project space station monitoring
 - Project shopping calculator
 - Project timetable manager
