@@ -1,6 +1,7 @@
 import java.util.*;
 
 public class Main {
+    static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
         int zähler = 21;
         int nenner = 41;
@@ -9,10 +10,59 @@ public class Main {
 
         kuerzen(zähler, nenner);
         kuerzen(zähler2, nenner2);
-        addieren(zähler, nenner, zähler2, nenner2);
-        subtraktion(zähler, nenner, zähler2, nenner2);
-        multiplikation(zähler, nenner, zähler2, nenner2);
-        divison(zähler, nenner, zähler2, nenner2);
+
+        int section = 0;
+
+        do{
+            System.out.print("==========\nHerzlich Willkommen zu unserem Java Bruchrechner!\nWählen Sie:\n1: Brüche addieren\n2: Brüche subtrahieren\n3: Brüche multiplizieren\n4: Brüche dividieren\n5: Bruch kürzen\n6: Bruch erweitern\n7: Größten gemeinsamen Teiler ermitteln\n0: Abbruch\n==========\nIhre Wahl:");
+            section = scanner.nextInt();
+            if(section != 0) {
+                System.out.print("Geben Sie den Zähler des ersten Bruches ein: ");
+                zähler = scanner.nextInt();
+                System.out.print("Geben Sie den Nenner des ersten bruches ein: ");
+                nenner = scanner.nextInt();
+                System.out.print("Geben Sie den Zähler des zweiten Bruches ein: ");
+                zähler2 = scanner.nextInt();
+                System.out.print("Geben Sie den Nenner des zweiten Bruches ein: ");
+                nenner2 = scanner.nextInt();
+            }
+
+            switch(section){
+                case 1:
+                    addieren(zähler, nenner, zähler2, nenner2);
+                    break;
+                case 2:
+                    subtraktion(zähler, nenner, zähler2, nenner2);
+                    break;
+                case 3:
+                    multiplikation(zähler, nenner, zähler2, nenner2);
+                    break;
+                case 4:
+                    divison(zähler, nenner, zähler2, nenner2);
+                    break;
+                case 5:
+                    kuerzen(zähler, nenner);
+                    kuerzen(zähler2, nenner2);
+                    break;
+                case 6:
+                    int[] a = erweitern(zähler, nenner, zähler2, nenner2);
+                    System.out.println("Die Erweiterung der Brüche " + zähler + "/" + nenner + " und " + zähler2 + "/" + nenner2 + "ergibt: " + a[1] + "/" + a[0] + " und " + a[2] + "/" + a[0]);
+                    break;
+                case 7:
+                     int teiler = ggT2(zähler, nenner);
+                    System.out.println("Das Kürzen des Bruches " + zähler + "/" + nenner + " ergibt: " + (zähler/teiler) + "/" + (nenner/teiler));
+                case 0:
+                    System.out.println("System beenden ...");
+                    break;
+                default:
+                    System.err.println("Es ist ein Fehler aufgetreten");
+            }
+            try{
+                Thread.sleep(2500);
+            }catch(InterruptedException e){
+                Thread.currentThread().interrupt();
+            }
+        }while(section != 0);
     }
 
     private static int ggT1 (int zähler, int nenner){
