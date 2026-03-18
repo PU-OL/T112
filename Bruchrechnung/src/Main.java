@@ -12,6 +12,7 @@ public class Main {
         addieren(zähler, nenner, zähler2, nenner2);
         subtraktion(zähler, nenner, zähler2, nenner2);
         multiplikation(zähler, nenner, zähler2, nenner2);
+        divison(zähler, nenner, zähler2, nenner2);
     }
 
     private static int ggT1 (int zähler, int nenner){
@@ -39,11 +40,11 @@ public class Main {
         int zähler_2 = zähler;
         int nenner_2 = nenner;
         int teiler = ggT2(zähler, nenner);
-         if(teiler != 0 || teiler != 1){
+        if(teiler != 0 || teiler != 1){
              zähler_2 = zähler/teiler;
              nenner_2 = nenner/teiler;
-         }
-         System.out.println("Der Bruch " + zähler + "/" + nenner + " wurde zu " + zähler_2 + "/" + nenner_2 + " gekürtzt.");
+        }
+        System.out.println("Der Bruch " + zähler + "/" + nenner + " wurde zu " + zähler_2 + "/" + nenner_2 + " gekürtzt.");
     }
 
     private static int[] erweitern (int zähler_I, int zähler_II, int nenner_I, int nenner_II){
@@ -129,17 +130,13 @@ public class Main {
         System.out.println("Die Multiplikation der Brüche " + zähler_I + "/" + nenner_I + " und " + zähler_II + "/" + nenner_II + " ergibt: " + zähler_final + "/" + nenner_final);
     }
 
-    private static void printData (byte type, int zähler_final, int nenner_final){
-        if(zähler_final != nenner_final){
-            //als 1 anzeigen und nicht als Bruch
-        }
-        switch(type) {
-            //Addition
-            case 1:
-                break;
-            //Subtraktion
-            case 2:
+    private static void divison (int zähler_I, int nenner_I, int zähler_II, int nenner_II){
+        int zähler_final = 0;
+        int nenner_final = 0;
 
-        }
+        zähler_final = zähler_I / nenner_II;
+        nenner_final = nenner_I / zähler_II;
+
+        System.out.println("Die Division der Brüche " + zähler_I + "/" + nenner_I + " und " + zähler_II + "/" + nenner_II + " ergibt: " + zähler_final + "/" + nenner_final);
     }
 }
