@@ -31,7 +31,7 @@ WITH LICENSE
 
 This Repository includes many programing projects:
 
-- Project Bruchrechnung
+- Project Fraction arithmetic
 - Project EVA-Test
 - Project Loopstask
 - Project Loopstask_2
@@ -42,6 +42,7 @@ This Repository includes many programing projects:
 - Project space station monitoring
 - Project shopping calculator
 - Project timetable manager
+- Project Tablet simulation
 - Project temperature analysis
 - Project typ converting
 - Project vram
