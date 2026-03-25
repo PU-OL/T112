@@ -83,7 +83,7 @@ public class Main {
             for (int i = 0; i < lenght; i++) {
                 System.out.print("-");
             }
-            System.out.println();
         }
+        System.out.println();
     }
 }
