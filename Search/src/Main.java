@@ -72,5 +72,4 @@ public class Main{
         if(debug) System.out.println("Player not found");
         return false;
     }
-
 }
