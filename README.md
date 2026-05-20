@@ -43,6 +43,7 @@ This Repository includes many programing projects:
 - Project Search
 - Project space station monitoring
 - Project shopping calculator
+- Project Sorting
 - Project timetable manager
 - Project Tablet simulation
 - Project temperature analysis
