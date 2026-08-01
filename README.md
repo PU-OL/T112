@@ -19,7 +19,7 @@ This Repo includes multiple Projects from the course T112.
 
 ## Project state
 
-🔧 This project is in development
+✅ This project is finished
 
 ## License
 
